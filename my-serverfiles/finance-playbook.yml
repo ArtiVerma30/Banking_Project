@@ -1,0 +1,16 @@
+- name : Configure Docker on test-server Instances
+  hosts : all
+  become: true
+  connection : ssh
+  tasks :
+  - name: updating my server using apt
+    command : sudo apt-get update
+
+  - name : Install Docker using apt
+    command : sudo apt-get install -y docker.io
+
+  - name : Start Docker Service
+    command : sudo systemctl start docker
+
+  - name: Run the Banking application on test-server
+    command: sudo docker run -dt -p 8084:8081 artiverma30/banking-project:1.0
