@@ -34,5 +34,15 @@ pipeline {
                 sh 'docker push artiverma30/banking-project:1.0'
                 }
         }
+        stage('configure server with terraform and deploy using Ansible') {
+           steps {
+		      dir('my-serverfiles') {
+		      sh 'sudo chmod 600 Artikeypair.pem'
+		      sh 'terraform init'
+		      sh 'terraform validate'
+		      sh 'terraform apply --auto-aprove'
+			}
+        }
+    }
   }
 }  
