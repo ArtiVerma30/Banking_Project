@@ -40,7 +40,7 @@ pipeline {
 		      sh 'sudo chmod 600 Artikeypair.pem'
 		      sh 'terraform init'
 		      sh 'terraform validate'
-		      sh 'terraform apply --auto-aprove'
+		      sh 'terraform apply --auto-approve'
 			}
         }
     }
