@@ -1,4 +1,7 @@
-stages {
+pipeline {
+    agent any
+
+    stages {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/ArtiVerma30/Banking_Project.git'
@@ -14,5 +17,5 @@ stages {
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Banking-Project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             }
         }
-    }
-}
+  }
+}  
